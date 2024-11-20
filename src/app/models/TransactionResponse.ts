@@ -1,6 +1,7 @@
 import {Campaign} from "./Campaign";
 
-export interface CampaignRequest extends Campaign {
-  restAmount: number;
-  transactions: TransactionResponse[];
+export interface TransactionResponse {
+  campaignName: string;
+  amount: number;
+  motif: string;
 }

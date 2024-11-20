@@ -1,7 +1,5 @@
-export interface Campaign {
-  name: string;
-  description: string;
-  target: number;
-  image: string;
-  currentAmount: number;
+import {Campaign} from "./Campaign";
+
+export interface CampaignRequest extends Campaign {
+
 }
