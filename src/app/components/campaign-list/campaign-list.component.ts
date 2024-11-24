@@ -1,12 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {
-  NzListComponent,
-  NzListItemActionComponent,
-  NzListItemComponent,
-  NzListItemMetaComponent
-} from "ng-zorro-antd/list";
-import {NzSkeletonComponent} from "ng-zorro-antd/skeleton";
-import {NgForOf} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
 import {CampaignService} from "../../services/campaign.service";
 import {CampaignResponse} from "../../models/CampaignResponse";
 

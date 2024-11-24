@@ -4,11 +4,21 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'campaigns',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'campaigns',
-    loadComponent: () => import('./components/campaign-list/campaign-list.component')
-      .then(m => m.CampaignListComponent),
-  }
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./components/campaign-list/campaign-list.component')
+          .then(m => m.CampaignListComponent),
+      },
+      {
+        path: 'create',
+        loadComponent: () => import('./components/create-campaign/create-campaign.component')
+          .then(m => m.CreateCampaignComponent)
+      }
+    ]
+  },
 ];
