@@ -1,18 +1,7 @@
-<div class="bg-blue-100 rounded-xl">
-  @for (campaign of campaigns; track campaign.name) {
-    <ul>
-      <li>{{ campaign.name }}</li>
-      <li>{{ campaign.description }}</li>
-      <li>{{ campaign.target }}</li>
-      <li>{{ campaign.currentAmount }}</li>
-    </ul>
+<div class="content-center items-center justify-items-center mx-auto mt-5 space-y-4 space-x-2">
 
-    <h2 class="font-bold">Transactions</h2>
-    @for (transaction of campaign.transactions; track transaction.motif) {
-      <ul>
-        <li>{{ transaction.motif }}</li>
-        <li>{{ transaction.amount }}</li>
-      </ul>
-    }
+  @for (campaign of campaigns | async; track campaign.name) {
+    <app-campaign-card [campaign]="campaign"></app-campaign-card>
   }
+
 </div>

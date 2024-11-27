@@ -16,8 +16,13 @@ export const routes: Routes = [
       },
       {
         path: 'create',
-        loadComponent: () => import('./components/create-campaign/create-campaign.component')
-          .then(m => m.CreateCampaignComponent)
+        loadComponent: () => import('./components/campaign-form/campaign-form.component')
+          .then(m => m.CampaignFormComponent)
+      },
+      {
+        path: ':name/update',
+        loadComponent: () => import('./components/campaign-form/campaign-form.component')
+          .then(m => m.CampaignFormComponent)
       }
     ]
   },

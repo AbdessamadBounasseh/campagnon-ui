@@ -1,0 +1,25 @@
+<nz-card class="w-1/2 border-2 border-blue-500" nzTitle="{{ campaign?.name | uppercase }}"
+         [nzExtra]="extraTemplate">
+  <p>{{ campaign?.description }}</p>
+</nz-card>
+<ng-template #extraTemplate>
+  <span>
+    <a>{{ campaign?.target | currency:'MAD ' }}</a>
+
+    <a nz-dropdown [nzDropdownMenu]="menu">
+      <span nz-icon nzType="more" nzTheme="outline" class="ml-3 text-xl"></span>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          <a [routerLink]="campaign.name+'/update'">Update</a>
+        </li>
+        <li nz-menu-item nzDanger>
+          <span nz-icon nzType="delete" nzTheme="outline"></span>
+          Delete
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </span>
+</ng-template>
