@@ -1,4 +1,4 @@
-<div class="content-center items-center justify-items-center mx-auto mt-5 space-y-4 space-x-2">
+<div class="justify-items-center items-center content-center justify-center mt-5 my-auto space-y-4 space-x-2">
 
   @for (campaign of campaigns | async; track campaign.name) {
     <app-campaign-card [campaign]="campaign"></app-campaign-card>
