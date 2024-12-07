@@ -1,7 +1,16 @@
-<div class="justify-items-center items-center content-center justify-center mt-5 my-auto space-y-4 space-x-2">
-
-  @for (campaign of campaigns | async; track campaign.name) {
-    <app-campaign-card [campaign]="campaign"></app-campaign-card>
-  }
-
+<div class="justify-items-center items-center content-center justify-center mt-5 my-auto space-y-4 space-x-2 ml-96">
+  <ng-container *ngIf="(campaigns | async) as campaignData">
+    <ng-container *ngIf="campaignData.length else noContent">
+      @for (campaign of campaignData; track campaign.name) {
+        <app-campaign-card [campaign]="campaign" (toggleModal)="showModal(campaign.name)"></app-campaign-card>
+      }
+    </ng-container>
+    <ng-template #noContent>
+      <nz-empty></nz-empty>
+    </ng-template>
+  </ng-container>
 </div>
+
+@if (isModalOpen) {
+  <app-confirm-dialog (isDeleteConfirmed)="handleDeletion($event)"></app-confirm-dialog>
+}

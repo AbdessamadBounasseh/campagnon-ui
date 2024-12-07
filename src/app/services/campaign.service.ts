@@ -26,4 +26,8 @@ export class CampaignService {
   createNewCampaign(campaignRequest: CampaignRequest): Observable<HttpResponsePayload> {
     return this.http.post<HttpResponsePayload>('http://localhost:8081/api/v1/campaigns', campaignRequest);
   }
+
+  deleteCampaign(campaignName: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/api/v1/campaigns/${campaignName}`);
+  }
 }

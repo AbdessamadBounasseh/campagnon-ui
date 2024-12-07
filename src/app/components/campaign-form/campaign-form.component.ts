@@ -39,7 +39,6 @@ export class CampaignFormComponent implements OnInit {
   ngOnInit() {
     this.campaignName = this.route.snapshot.params['name'];
     this.isAddForm = !this.campaignName;
-
     this.initForm();
   }
 
